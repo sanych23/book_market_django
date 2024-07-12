@@ -1,2 +1,5 @@
 .venv/
 book_market/db.sqlite3
+book_market/book_market/settings.py
+*__pycache__
+*__init__.py
