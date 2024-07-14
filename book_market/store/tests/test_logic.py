@@ -16,5 +16,5 @@ class LogicTestCase(TestCase):
         self.assertEqual(4, result)
 
     def test_delenie(self):
-        result = operation(5, 1, "*")
+        result = operation(5, 1, "/")
         self.assertEqual(5, result)
