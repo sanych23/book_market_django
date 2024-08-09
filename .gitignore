@@ -4,3 +4,4 @@ book_market/book_market/settings.py
 *__pycache__
 *__init__.py
 book_market/.coverage
+*migrations/

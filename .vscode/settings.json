@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./book_market",
+        "./book_market"
+    ]
+}
