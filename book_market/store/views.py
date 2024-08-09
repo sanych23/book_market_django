@@ -5,13 +5,17 @@ from store.serializers import BooksSerializer, UserBookRelationSerializer
 from store.models import Book, UserBookRelation
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.mixins import UpdateModelMixin
+from django.db.models import Count, Case, When, Avg
 
 
 # Create your views here.
 class BookViewSet(ModelViewSet):
-    queryset = Book.objects.all()
+    queryset = Book.objects.all().annotate(
+        annotated_likes=Count(Case(When(userbookrelation__like=True, then=1))),
+        rating=Avg('userbookrelation__rate')
+    )
     serializer_class = BooksSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     permission_classes = [IsOwnerOrStaffOrReadOnly]

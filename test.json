@@ -1,0 +1,54 @@
+{
+    "response_data": [
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 1",
+            "id": 17,
+            "likes_count": 0,
+            "name": "Test Book 1",
+            "price": "25.00"
+        },
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 2",
+            "id": 19,
+            "likes_count": 0,
+            "name": "Test Book Author 1",
+            "price": "55.00"
+        },
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 5",
+            "id": 18,
+            "likes_count": 0,
+            "name": "Test Book 2",
+            "price": "55.00"
+        }
+    ],
+    "serialize_data": [
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 1",
+            "id": 17,
+            "likes_count": 0,
+            "name": "Test Book 1",
+            "price": "25.00"
+        },
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 5",
+            "id": 18,
+            "likes_count": 0,
+            "name": "Test Book 2",
+            "price": "55.00"
+        },
+        {
+            "annotated_likes": 0,
+            "author_name": "Author 2",
+            "id": 19,
+            "likes_count": 0,
+            "name": "Test Book Author 1",
+            "price": "55.00"
+        }
+    ]
+}
