@@ -13,9 +13,8 @@ from django.db.models import Count, Case, When, Avg
 # Create your views here.
 class BookViewSet(ModelViewSet):
     queryset = Book.objects.all().annotate(
-        annotated_likes=Count(Case(When(userbookrelation__like=True, then=1))),
-        rating=Avg('userbookrelation__rate')
-    )
+        annotated_likes=Count(Case(When(userbookrelation__like=True, then=1)))
+    ).select_related('owner').prefetch_related('readers')
     serializer_class = BooksSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     permission_classes = [IsOwnerOrStaffOrReadOnly]
