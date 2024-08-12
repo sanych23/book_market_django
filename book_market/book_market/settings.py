@@ -166,3 +166,18 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_GITHUB_KEY = 'Ov23liIhrJXgDMnO3CN1'
 SOCIAL_AUTH_GITHUB_SECRET = '20175ab4d0e4f4ef03562b6bec5eaac35f4825ca'
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+        }
+    }
+}
