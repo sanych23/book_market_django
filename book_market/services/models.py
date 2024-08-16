@@ -57,7 +57,15 @@ class Subscription(models.Model):
     service = models.ForeignKey(Service, related_name='subscriptions', on_delete=models.PROTECT)
     plan = models.ForeignKey(Plan, related_name='subscriptions', on_delete=models.PROTECT)
     price = models.PositiveIntegerField(default=0)
-    comment = models.CharField(max_length=50, default='')
+    comment = models.CharField(max_length=50, default='', db_index=True)
+
+    # field_a = models.CharField(max_length=50, default='')
+    # field_b = models.CharField(max_length=50, default='')
+
+    # class Meta:
+    #     indexes = [
+    #         models.Index(fields=['field_a', 'field_b'])
+    #     ]
 
     # def save(self, *args, save_model=True, **kwargs):
     #     if save_model:
@@ -67,7 +75,7 @@ class Subscription(models.Model):
     def __str__(self) -> str:
         return f"{self.client.user.username} - {self.service.name} ({self.plan.plan_type})"
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, save_model=True, **kwargs):
         creating = not bool(self.id)
         result = super().save(*args, **kwargs)
         if creating:
